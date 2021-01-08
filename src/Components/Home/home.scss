@@ -1,0 +1,13 @@
+@import "../../constants.scss";
+.start-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20%;
+
+  button {
+    background-color: $strive-primary;
+    padding: 1.5rem;
+  }
+}

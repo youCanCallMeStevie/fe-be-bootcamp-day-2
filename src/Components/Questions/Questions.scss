@@ -1,0 +1,47 @@
+@import "../../constants.scss";
+.quiz-page {
+  margin-top: 10%;
+  margin-left: 20%;
+  margin-right: 20%;
+  padding: 2rem;
+  background-color: $background-black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  button {
+    background-color: $strive-primary;
+    padding: 0.5rem;
+    min-width: 15rem;
+  }
+}
+
+.answers {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.answer-cell {
+  margin: 1rem;
+  border: 1px solid $background-white;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 5rem;
+  &:hover {
+    background: $text-muted;
+    color: $strive-primary;
+    cursor: pointer;
+  }
+}
+
+.answer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-nav-buttons {
+  display: flex;
+  justify-content: space-around;
+}
