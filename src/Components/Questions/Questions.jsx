@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { getScore, sendAnswers } from "../../Api/exam";
 import ExamContext from "../../Contexts/ExamContext";
+import uniqid from "uniqid"
 import "./Questions.scss";
 
 function Questions(props) {
@@ -22,10 +23,10 @@ function Questions(props) {
     ]);
     setPage(page + 1);
   };
-  const handleTestAgain = () => {
-    setPage(0);
-    setAnswers([]);
-  };
+//   const handleTestAgain = () => {
+//     setPage(0);
+//     setAnswers([]);
+//   };
 
  const handleSubmitAnswers= async ()=>{
  const resultForPost = await sendAnswers(answers, exam._id);
@@ -44,11 +45,13 @@ setPage(page+1);
             <Row>
               {questions[page].answers.map((answer, index) => {
                 return (
-                  <Col md={6}>
+                  <Col md={6} key={uniqid()}
+                  >
                     <h5
                       id={index}
                       onClick={handleAnswerClick}
                       className="answer-cell"
+                      
                     >
                       {answer.text}
                     </h5>
@@ -76,9 +79,9 @@ setPage(page+1);
           <h4>Congrats {exam.candidateName}! You've finished!</h4>
           <p>If your happy with your answers, be sure to submite</p>
         <button onClick={handleSubmitAnswers}>Submit Answers</button>
-        <p>Else start the exam again</p>
+        {/* <p>Else start the exam again</p>
 
-        <button onClick={handleTestAgain}>Test Again</button>
+        <button onClick={handleTestAgain}>Test Again</button> */}
       </div>
     );
   };
